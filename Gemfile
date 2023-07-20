@@ -73,3 +73,6 @@ group :test do
 end
 
 gem "rails-i18n", "~> 7.0.0"
+
+gem "omniauth-twitter2"
+gem "omniauth-rails_csrf_protection"
