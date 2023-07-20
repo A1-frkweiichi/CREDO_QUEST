@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse show" id="navbarTogglerDemo01">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= button_to "Sign out", "/sign_out", method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "nav-link active btn btn-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= button_to "Sign in", "/auth/twitter2", method: :post, data: { turbo: false }, class: "nav-link active btn btn-link" %>
+          </li>
+          <li class="nav-item">
+            <%# <%= button_to "ゲストログイン", "#", method: :get, class: "nav-link active btn btn-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Information
+            </a>
+            <ul class="dropdown-menu dropdown-menu-" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/home/terms">利用規約</a></li>
+              <li><a class="dropdown-item" href="/home/privacy_policy">プライバシポリシ</a></li>
+              <li><a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSem-rlvwDvTYiSJXXkoF9SltbqDEdEjaoFLUpd4Ci1vOEN5vA/viewform">お問い合わせ</a></li>
+              <li><a class="dropdown-item" href="https://runteq.jp/r/9_JVIuxH">卒業校　RUNTEQ</a></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="d-flex">
+      <%= link_to "https://twitter.com/CREDO_QUEST", class: "nav-link" do %>
+        <i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i>
+      <% end %>
+      <%= link_to "https://github.com/furukawaeiichi/CREDO_QUEST", class: "nav-link" do %>
+        <i class="bi bi-github" style="color: #000; font-size: 1.5rem;"></i>
+      <% end %>
+      <%= audio_tag "/audios/bgm.mp3", controls: true, loop: true, data: { turbo_permanent: true }, id: "bgm", style: "width: 250px;" %>
+    </div>
+  </div>
+</nav>
