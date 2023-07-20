@@ -26,6 +26,8 @@
 !/tmp/storage/.keep
 
 /public/assets
+/public/.DS_Store
+/public/audios/.DS_Store
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
