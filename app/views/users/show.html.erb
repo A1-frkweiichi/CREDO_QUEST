@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card" style="text-align: center;">
+
+    <img src="<%= @user.image %>" width="100" height="100" style="display: block; margin: auto;">
+
+    <div class="card-body">
+      <h5 class="card-title"><%= @user.name %></h5>
+      <div class="d-flex justify-content-center gap-3" style="align-items: center;">
+        <a href="https://twitter.com/<%= @user.nickname %>" target="_blank"><i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i></a>
+      </div>
+    </div>
+
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="クエストを投稿しました！" data-url="https://fathomless-wildwood-03227-663345a040ad.herokuapp.com" data-via="CREDO_QUEST" data-hashtags="CREDO_QUEST,RUNTEQ" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  </div>
+</div>
