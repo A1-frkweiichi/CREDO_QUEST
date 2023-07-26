@@ -13,4 +13,12 @@
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="クエストを投稿しました！" data-url="https://fathomless-wildwood-03227-663345a040ad.herokuapp.com" data-via="CREDO_QUEST" data-hashtags="CREDO_QUEST,RUNTEQ" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   </div>
+
+  <% DEFAULT_TODOS.each do |category, descriptions| %>
+    <h2><%= category %></h2>
+    <% descriptions.each do |description| %>
+      <p><%= description %></p>
+    <% end %>
+  <% end %>
+
 </div>

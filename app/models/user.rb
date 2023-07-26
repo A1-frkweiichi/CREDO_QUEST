@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :todos
+
   def self.find_or_create_from_auth(auth)
     uid = auth[:uid]
     provider = auth[:provider]
