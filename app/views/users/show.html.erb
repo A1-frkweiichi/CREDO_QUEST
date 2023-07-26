@@ -1,16 +1,46 @@
 <div class="container">
   <div class="card" style="text-align: center;">
-
     <img src="<%= @user.image %>" width="100" height="100" style="display: block; margin: auto;">
-
     <div class="card-body">
       <h5 class="card-title"><%= @user.name %></h5>
       <div class="d-flex justify-content-center gap-3" style="align-items: center;">
         <a href="https://twitter.com/<%= @user.nickname %>" target="_blank"><i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i></a>
       </div>
     </div>
-
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="クエストを投稿しました！" data-url="https://fathomless-wildwood-03227-663345a040ad.herokuapp.com" data-via="CREDO_QUEST" data-hashtags="CREDO_QUEST,RUNTEQ" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
   </div>
+
+  <br>
+
+  <div>
+    <ul class="nav nav-pills nav-fill bg-light" id="categoryTabs" role="tablist">
+      <% @user.todos.group_by(&:category).keys.each_with_index do |category, index| %>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link <%= 'active' if index == 0 %>" id="<%= "#{category}-tab" %>" data-bs-toggle="tab" href="#<%= category %>" role="tab" aria-controls="<%= category %>" aria-selected="<%= 'true' if index == 0 %>">
+            <%= category %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+    <div class="tab-content" id="categoryTabDescripitions">
+      <% @user.todos.group_by(&:category).each_with_index do |(category, todos), index| %>
+        <div class="tab-pane fade <%= 'show active' if index == 0 %>" id="<%= category %>" role="tabpanel" aria-labelledby="<%= "#{category}-tab" %>">
+          <ul class="list-group">
+            <% todos.each_with_index do |todo, index| %>
+              <li class="list-group-item">
+                <%= form_with(model: todo, method: :patch, local: true) do |form| %>
+                  <% if todo.level.present? %>
+                    Level: <%= todo.level %>
+                  <% end %>
+                  <%= form.check_box :checked, class: "form-check-input me-1", onchange: 'this.form.requestSubmit()', id: "todo_checked_#{todo.id}" %>
+                  <%= form.label :checked, todo.description, class: "form-check-label", for: "todo_checked_#{todo.id}" %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>
