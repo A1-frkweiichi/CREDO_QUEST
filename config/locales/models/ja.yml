@@ -1,1 +1,16 @@
 ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+      todo: "クエスト"
+    attributes:
+      user:
+
+      todo:
+
+    errors:
+      models:
+        user:
+          attributes:
+        todo:
+          attributes:

@@ -7,25 +7,26 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= button_to "Sign out", "/sign_out", method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "nav-link active btn btn-link" %>
+            <%= button_to t("shared.header.edit"), edit_user_path(current_user), method: :get, class: "nav-link active btn btn-link" %>
+          </li>
+          <li class="nav-item">
+            <%= button_to t("shared.header.sign_out"), "/sign_out", method: :delete, data: { turbo_confirm: t("shared.header.confirm_sign_out") }, class: "nav-link active btn btn-link" %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= button_to "Sign in", "/auth/twitter2", method: :post, data: { turbo: false }, class: "nav-link active btn btn-link" %>
+            <%= button_to t("shared.header.sign_in"), "/auth/twitter2", method: :post, data: { turbo: false }, class: "nav-link active btn btn-link" %>
           </li>
           <li class="nav-item">
-            <%# <%= button_to "ゲストログイン", "#", method: :get, class: "nav-link active btn btn-link" %>
+            <%# <%= button_to t("shared.header.guest_sign_in"), "#", method: :get, class: "nav-link active btn btn-link" %>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Information
-            </a>
-            <ul class="dropdown-menu dropdown-menu-" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/home/terms">利用規約</a></li>
-              <li><a class="dropdown-item" href="/home/privacy_policy">プライバシポリシ</a></li>
-              <li><a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSem-rlvwDvTYiSJXXkoF9SltbqDEdEjaoFLUpd4Ci1vOEN5vA/viewform">お問い合わせ</a></li>
-              <li><a class="dropdown-item" href="https://runteq.jp/r/9_JVIuxH">卒業校　RUNTEQ</a></li>
-            </ul>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Information</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/home/terms"><%= t("shared.header.terms_of_service") %></a></li>
+                <li><a class="dropdown-item" href="/home/privacy_policy"><%= t("shared.header.privacy_policy") %></a></li>
+                <li><a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSem-rlvwDvTYiSJXXkoF9SltbqDEdEjaoFLUpd4Ci1vOEN5vA/viewform"><%= t("shared.header.contact_us") %></a></li>
+                <li><a class="dropdown-item" href="https://runteq.jp/r/9_JVIuxH"><%= t("shared.header.runteq") %></a></li>
+              </ul>
           </li>
         <% end %>
       </ul>
