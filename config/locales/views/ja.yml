@@ -1,1 +1,20 @@
 ja:
+  shared:
+    header:
+      sign_in: "ログイン"
+      sign_out: "ログアウト"
+      confirm_sign_out: "本当にログアウトしますか？"
+      guest_sign_in: "ゲストログイン"
+      edit: "設定"
+      terms_of_service: "利用規約"
+      privacy_policy: "プライバシーポリシー"
+      contact_us: "お問い合わせ"
+      runteq: "卒業校 RUNTEQ"
+    footer:
+      todo_form: "クエスト応募"
+  users:
+    edit:
+      title: "設定"
+      delete_account: "アカウント削除"
+      confirm_delete: "本当にアカウントを削除しますか？"
+  todos:
