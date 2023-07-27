@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @users = User.all
+  end
 
   def show
     @todos = @user.todos.order(id: :asc, level: :asc, created_at: :asc)
