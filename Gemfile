@@ -85,3 +85,6 @@ gem "omniauth-rails_csrf_protection"
 gem "omniauth-twitter2"
 
 gem "meta-tags"
+
+gem "kaminari"
+gem "bootstrap5-kaminari-views"

@@ -5,16 +5,26 @@ ja:
       sign_out: "ログアウト"
       confirm_sign_out: "本当にログアウトしますか？"
       guest_sign_in: "ゲストログイン"
+      user: "マイページ"
+      index: "仲間を探す"
       edit: "設定"
+    footer:
+      todo_form: "クエスト応募"
       terms_of_service: "利用規約"
       privacy_policy: "プライバシーポリシー"
       contact_us: "お問い合わせ"
       runteq: "卒業校 RUNTEQ"
-    footer:
-      todo_form: "クエスト応募"
   users:
+    index:
+      title: "仲間を探す"
     edit:
       title: "設定"
       delete_account: "アカウント削除"
       confirm_delete: "本当にアカウントを削除しますか？"
+  views:
+    pagination:
+      first: <i class="bi bi-chevron-double-left"></i>
+      previous: <i class="bi bi-chevron-left"></i>
+      next: <i class="bi bi-chevron-compact-right"></i>
+      last: <i class="bi bi-chevron-bar-right"></i>
   todos:
