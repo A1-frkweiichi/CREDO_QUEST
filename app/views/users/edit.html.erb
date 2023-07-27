@@ -1,0 +1,13 @@
+<div class="container-fluid px-0 py-5 my-5">
+  <div class="row mx-0">
+    <div class="col px-4 text-center">
+
+      <h1 class="white-text mb-4"><%= t("users.edit.title") %></h1>
+
+      <div class="mt-4">
+        <%= button_to t("users.edit.delete_account"), @user, method: :delete, data: { turbo_confirm: t("users.edit.confirm_delete") }, class: "btn btn-danger" %>
+      </div>
+
+    </div>
+  </div>
+</div>
