@@ -21,4 +21,10 @@ ja:
       title: "設定"
       delete_account: "アカウント削除"
       confirm_delete: "本当にアカウントを削除しますか？"
+  views:
+    pagination:
+      first: <i class="bi bi-chevron-double-left"></i>
+      previous: <i class="bi bi-chevron-left"></i>
+      next: <i class="bi bi-chevron-compact-right"></i>
+      last: <i class="bi bi-chevron-bar-right"></i>
   todos:
