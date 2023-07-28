@@ -22,7 +22,7 @@ class User < ApplicationRecord
   def create_default_todos
     DEFAULT_TODOS.each_with_index do |(category, description), index|
       description.each_with_index do |description, sub_index|
-        todos.create!(category: category, description: description, level: sub_index + 1)
+        todos.create!(category: category, description: description)
       end
     end
   end
