@@ -23,7 +23,7 @@
       <% end %>
     </ul>
     <div class="tab-content" id="categoryTabDescripitions">
-      <% @user.todos.group_by(&:category).each_with_index do |(category, todos), index| %>
+      <% @todos_grouped.each_with_index do |(category, todos), index| %>
         <div class="tab-pane fade <%= 'show active' if index == 0 %>" id="<%= category %>" role="tabpanel" aria-labelledby="<%= "#{category}-tab" %>">
           <ul class="list-group">
             <% todos.each_with_index do |todo, index| %>
