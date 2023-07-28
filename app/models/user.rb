@@ -4,13 +4,7 @@ class User < ApplicationRecord
   after_create :create_default_todos
 
   def self.find_or_create_from_auth(auth)
-    uid = auth[:uid]
-    provider = auth[:provider]
-    nickname = auth[:info][:nickname]
-    name = auth[:info][:name]
-    image = auth[:info][:image]
-
-    self.find_or_create_by(uid: uid, provider: provider) do |user|
+    self.find_or_create_by(uid: auth[:uid], provider: auth[:provider]) do |user|
       user.nickname = auth[:info][:nickname]
       user.name = auth[:info][:name]
       user.image = auth[:info][:image]
@@ -20,9 +14,9 @@ class User < ApplicationRecord
   private
 
   def create_default_todos
-    DEFAULT_TODOS.each_with_index do |(category, description), index|
-      description.each_with_index do |description, sub_index|
-        todos.create!(category: category, description: description)
+    DEFAULT_TODOS.each do |category, descriptions|
+      descriptions.each do |description|
+        todos.create!(category: category, description: description, default: true)
       end
     end
   end
