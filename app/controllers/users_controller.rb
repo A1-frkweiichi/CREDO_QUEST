@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @default_todos_grouped = @user.todos.default_todos.order(id: :asc).group_by(&:category)
-    @user_todos_grouped = @user.todos.user_todos.order(id: :asc).group_by(&:category)
+    # @user_todos_grouped = @user.todos.user_todos.order(id: :desc).group_by(&:category)
   end
 
   def edit
