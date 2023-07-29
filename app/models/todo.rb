@@ -6,11 +6,11 @@ class Todo < ApplicationRecord
   scope :user_todos, -> { where(default: false) }
 
   def update_user_level
-    if self.checked
-      self.user.level += 1
+    if checked
+      user.level += 1
     else
-      self.user.level -= 1
+      user.level -= 1
     end
-    self.user.save
+    user.save
   end
 end
