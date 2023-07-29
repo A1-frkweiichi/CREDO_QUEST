@@ -1,7 +1,10 @@
 class User < ApplicationRecord
   has_many :todos, dependent: :destroy
-
   after_create :create_default_todos
+
+  def level
+    self.todos.where(checked: true).count
+  end
 
   def self.find_or_create_from_auth(auth)
     self.find_or_create_by(uid: auth[:uid], provider: auth[:provider]) do |user|

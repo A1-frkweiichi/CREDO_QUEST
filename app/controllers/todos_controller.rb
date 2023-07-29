@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo
+  before_action :set_todo, only: [:show, :edit, :update, :destroy]
 
   def update
     @todo.update(todo_params)
@@ -8,7 +8,7 @@ class TodosController < ApplicationController
   private
 
   def set_todo
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
   end
 
   def todo_params
