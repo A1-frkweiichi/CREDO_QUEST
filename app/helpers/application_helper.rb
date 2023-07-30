@@ -5,16 +5,17 @@ module ApplicationHelper
       title: '学習カリキュラムとともに、WEB業界カルチャーを身につけるTodoList',
       reverse: true,
       charset: 'utf-8',
-      description: 'エンジニア学習の意識するコツがわかる、成長記録ができるアプリです。',
-      keywords: 'RUNTEQ,CREDO_QUEST,エンジニア転職,未経験エンジニア',
-      canonical: request.original_url,
+      description: 'エンジニア学習の意識するコツがわかる、行動を共有しあえるアプ
+リです。',
+      keywords: 'エンジニア学習,エンジニア転職,未経験エンジニア',
+      canonical: url_for(controller: 'users', action: 'index'),
       separator: '|',
       og: {
         site_name: :site,
         title: :title,
         description: :description,
         type: 'website',
-        url: request.original_url,
+        url: url_for(controller: 'users', action: 'index'),
         image: image_url('ogp.jpg'),
         local: 'ja-JP'
       },
