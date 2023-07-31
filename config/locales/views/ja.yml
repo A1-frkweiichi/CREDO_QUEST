@@ -14,6 +14,7 @@ ja:
       privacy_policy: "プライバシーポリシー"
       contact_us: "お問い合わせ"
       runteq: "卒業校 RUNTEQ"
+
   users:
     index:
       title: "仲間を探す"
@@ -21,10 +22,18 @@ ja:
       title: "設定"
       delete_account: "アカウント削除"
       confirm_delete: "本当にアカウントを削除しますか？"
+
+  todos:
+
   views:
     pagination:
       first: <i class="bi bi-chevron-double-left"></i>
       previous: <i class="bi bi-chevron-left"></i>
       next: <i class="bi bi-chevron-compact-right"></i>
       last: <i class="bi bi-chevron-bar-right"></i>
-  todos:
+
+  flash:
+    todos:
+      update:
+        success: "クエストを　こうしんしました！"
+        failure: "クエストの　こうしんにしっぱいしました"
