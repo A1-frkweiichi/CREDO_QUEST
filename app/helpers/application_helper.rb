@@ -5,8 +5,7 @@ module ApplicationHelper
       title: '学習カリキュラムとともに、WEB業界カルチャーを身につけるTodoList',
       reverse: true,
       charset: 'utf-8',
-      description: 'エンジニア学習の意識するコツがわかる、行動を共有しあえるアプ
-リです。',
+      description: 'エンジニア学習の意識するコツがわかる、行動を共有しあえるアプリです。',
       keywords: 'エンジニア学習,エンジニア転職,未経験エンジニア',
       canonical: url_for(controller: 'users', action: 'index'),
       separator: '|',

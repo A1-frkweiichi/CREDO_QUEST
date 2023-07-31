@@ -1,0 +1,7 @@
+<turbo-stream action="replace" target="user_level">
+  <template>
+    <h5 id="user_level">Level: <%= @todo.user.level %></h5>
+  </template>
+</turbo-stream>
+
+<%= turbo_stream.update "flash", partial: "shared/flash" %>
