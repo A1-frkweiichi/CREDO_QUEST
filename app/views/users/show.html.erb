@@ -4,6 +4,23 @@
     <div class="card-body">
       <h5 class="card-title"><%= @user.name %></h5>
       <h5 id="user_level">Level: <%= @user.level %></h5>
+
+      <div class="progress" role="progressbar" aria-label="Category 1" aria-valuenow="<%= @completion_percentage %>" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: <%= @completion_percentage %>%"></div>
+      </div>
+      <div class="progress" role="progressbar" aria-label="Category 2" aria-valuenow="<%= @completion_percentage %>" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: <%= @completion_percentage %>%"></div>
+      </div>
+      <div class="progress" role="progressbar" aria-label="Category 3" aria-valuenow="<%= @completion_percentage %>" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" style="width: <%= @completion_percentage %>%"></div>
+      </div>
+      <div class="progress" role="progressbar" aria-label="Category 4" aria-valuenow="<%= @completion_percentage %>" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: <%= @completion_percentage %>%"></div>
+      </div>
+      <div class="progress" role="progressbar" aria-label="Category 5" aria-valuenow="<%= @completion_percentage %>" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: <%= @completion_percentage %>%"></div>
+      </div>
+
       <div class="d-flex justify-content-center gap-3" style="align-items: center;">
         <a href="https://twitter.com/<%= @user.nickname %>" target="_blank"><i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i></a>
       </div>
