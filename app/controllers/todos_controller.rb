@@ -5,9 +5,9 @@ class TodosController < ApplicationController
     if @todo.update(todo_params)
       @todo.update_user_level
       @categories_progress = @todo.user.categories_progress
-      flash.now[:notice] = t('flash.todos.update.success')
+      flash.now[:notice] = t("flash.todos.update.success")
     else
-      flash.now[:error] = t('flash.todos.update.failure')
+      flash.now[:error] = t("flash.todos.update.failure")
     end
   end
 
