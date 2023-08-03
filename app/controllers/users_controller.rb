@@ -9,16 +9,7 @@ class UsersController < ApplicationController
     @default_todos_grouped = @user.todos.default_todos.order(id: :asc).group_by(&:category)
     @categories_progress = @user.categories_progress
     # @user_todos_grouped = @user.todos.user_todos.order(id: :desc).group_by(&:category)
-    set_meta_tags({
-      title: @user.name,
-      og: {
-        url: user_url(@user),
-        image: ActionController::Base.helpers.image_url('ogp.jpg')
-      },
-      twitter: {
-        image: ActionController::Base.helpers.image_url('ogp.jpg')
-      }
-    })
+    helpers.user_meta_tags(@user)
   end
 
   def edit

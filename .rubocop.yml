@@ -32,8 +32,9 @@ Metrics/BlockLength:
 Metrics/AbcSize:
   Max: 10
   Exclude:
-    - "app/models/user.rb"
     - "app/controllers/sessions_controller.rb"
+    - "app/controllers/todos_controller.rb"
+    - "app/models/user.rb"
 
 # メソッドの中身が複雑になっていないか、Rubocopが計算して基準値を超えると警告を出す
 Metrics/PerceivedComplexity:
