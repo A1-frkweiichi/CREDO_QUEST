@@ -6,6 +6,14 @@ class User < ApplicationRecord
     self.todos.where(checked: true).count
   end
 
+  def categories_progress
+    todos.default_todos.order(id: :asc).group_by(&:category).transform_values do |todos|
+      checked = todos.count(&:checked)
+      total = todos.size
+      (checked.to_f / total * 100).round
+    end
+  end
+
   def self.find_or_create_from_auth(auth)
     user = self.find_or_create_by(uid: auth[:uid], provider: auth[:provider]) do |user_record|
       user_record.nickname = auth[:info][:nickname]

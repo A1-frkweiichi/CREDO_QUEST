@@ -4,6 +4,13 @@
     <div class="card-body">
       <h5 class="card-title"><%= @user.name %></h5>
       <h5 id="user_level">Level: <%= @user.level %></h5>
+
+      <% @categories_progress.each_with_index do |(category, progress), index| %>
+        <div class="progress" id="progress-bar-<%= index %>">
+          <div class="progress-bar progress-bar-striped progress-bar-animated <%= progress_bar_color(index) %>" role="progressbar" style="width: <%= progress %>%;" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuemax="100"><%= category %></div>
+        </div>
+      <% end %>
+
       <div class="d-flex justify-content-center gap-3" style="align-items: center;">
         <a href="https://twitter.com/<%= @user.nickname %>" target="_blank"><i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i></a>
       </div>
