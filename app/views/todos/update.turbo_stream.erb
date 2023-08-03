@@ -4,4 +4,14 @@
   </template>
 </turbo-stream>
 
+<% @categories_progress.each_with_index do |(category, progress), index| %>
+  <turbo-stream action="replace" target="progress-bar-<%= index %>">
+    <template>
+      <div class="progress" id="progress-bar-<%= index %>">
+        <div class="progress-bar progress-bar-striped progress-bar-animated <%= progress_bar_color(index) %>" role="progressbar" style="width: <%= progress %>%;" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuemax="100"><%= category %></div>
+      </div>
+    </template>
+  </turbo-stream>
+<% end %>
+
 <%= turbo_stream.update "flash", partial: "shared/flash" %>
