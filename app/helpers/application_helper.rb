@@ -7,14 +7,14 @@ module ApplicationHelper
       charset: 'utf-8',
       description: 'エンジニア学習の意識するコツがわかる、行動を共有しあえるアプリです。',
       keywords: 'エンジニア学習,エンジニア転職,未経験エンジニア',
-      canonical: url_for(controller: 'users', action: 'index'),
+      canonical: request.original_url,
       separator: '|',
       og: {
         site_name: :site,
         title: :title,
         description: :description,
         type: 'website',
-        url: url_for(controller: 'users', action: 'index'),
+        url: request.original_url,
         image: image_url('ogp.jpg'),
         local: 'ja-JP'
       },
