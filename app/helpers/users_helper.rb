@@ -23,7 +23,6 @@ module UsersHelper
         image: ActionController::Base.helpers.image_url("ogp.jpg")
       },
       twitter: {
-        title: "学習カリキュラムとともに、WEB業界カルチャーを身につけるTodoList",
         image: ActionController::Base.helpers.image_url("ogp.jpg")
       }
     )

@@ -21,6 +21,7 @@ module ApplicationHelper
       twitter: {
         card: 'summary_large_image',
         site: '@CREDO_QUEST',
+        title: :title,
         image: image_url('ogp.jpg')
       }
     }
