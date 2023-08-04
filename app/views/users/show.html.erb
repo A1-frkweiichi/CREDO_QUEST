@@ -13,7 +13,19 @@
 
       <div class="d-flex justify-content-center gap-3" style="align-items: center;">
         <a href="https://twitter.com/<%= @user.nickname %>" target="_blank"><i class="bi bi-twitter" style="color: #00aced; font-size: 1.5rem;"></i></a>
+        <% @user.another_website_links.each do |link| %>
+          <% if link.url.present? %>
+            <%= link_to link.url, target: "_blank" do %>
+              <% if link.website == "github" %>
+                <%= content_tag :i, nil, class: "bi bi-github", style: "color: #000; font-size: 1.5rem;" %>
+              <% else %>
+                <%= image_tag("#{link.website}.jpg", style: "height: 1.5rem;") %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
+
       <script>
         function tweet() {
           var text = "テッテレー♪レベル<%= @user.level %>にあがった！";

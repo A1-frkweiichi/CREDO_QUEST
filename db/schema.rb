@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_30_141259) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_03_134127) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "another_website_links", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "website"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_another_website_links_on_user_id"
+  end
 
   create_table "todos", force: :cascade do |t|
     t.string "category", null: false
@@ -37,5 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_30_141259) do
     t.datetime "last_login_at", null: false
   end
 
+  add_foreign_key "another_website_links", "users"
   add_foreign_key "todos", "users"
 end

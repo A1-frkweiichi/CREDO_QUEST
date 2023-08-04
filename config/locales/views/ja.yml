@@ -20,6 +20,10 @@ ja:
       title: "仲間を探す"
     edit:
       title: "設定"
+      form_title: "アウトプットサイト リンク登録"
+      form_submit: "更新"
+      form_delete: "リンク削除"
+      form_confirm_delete: "本当にリンクを削除しますか？"
       delete_account: "アカウント削除"
       confirm_delete: "本当にアカウントを削除しますか？"
 
@@ -37,3 +41,13 @@ ja:
       update:
         success: "クエストを　こうしんしました！"
         failure: "クエストの　こうしんにしっぱいしました"
+    another_website_links:
+      create:
+        success: "リンクを　とうろくしました！"
+        failure: "リンクの　とうろくにしっぱいしました"
+      update:
+        success: "リンクを　こうしんしました！"
+        failure: "リンクの　こうしんにしっぱいしました"
+      destroy:
+        success: "リンクを　さくじょしました！"
+        failure: "リンクの　さくじょにしっぱいしました"
