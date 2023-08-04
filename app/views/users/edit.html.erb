@@ -1,13 +1,34 @@
-<div class="container-fluid px-0 py-5 my-5">
-  <div class="row mx-0">
-    <div class="col px-4 text-center">
+<h1 class="white-text d-flex justify-content-center my-5"><%= t("users.edit.title") %></h1>
 
-      <h1 class="white-text mb-4"><%= t("users.edit.title") %></h1>
+<div id="flash-message" class="mx-5">
+  <%= render "shared/flash" %>
+</div>
 
-      <div class="mt-4">
-        <%= button_to t("users.edit.delete_account"), @user, method: :delete, data: { turbo_confirm: t("users.edit.confirm_delete") }, class: "btn btn-danger" %>
+<h3 class="white-text d-flex justify-content-center my-5"><%= t("users.edit.form_title") %></h5>
+
+<div class="mx-5">
+  <% ["github", "mattermost", "notion", "note", "hatena_blog", "qiita", "zenn"].each do |website| %>
+    <% link = @user.another_website_links.find_by(website: website) %>
+      <div class="d-flex row mb-5">
+        <%= form_with(model: [ @user, link || @user.another_website_links.build ], local: true, class: 'd-flex') do |form| %>
+          <div class="form-floating flex-grow-1">
+            <%= form.text_field :url, value: link&.url, class: "form-control", id: "#{website}_url", placeholder: "#{website.titleize}", aria: { label: website.titleize } %>
+            <%= form.label :url, "#{website.titleize}", for: "#{website}_url" %>
+            <%= form.hidden_field :website, value: website %>
+          </div>
+          <%= form.submit t("users.edit.form_submit"), class: "btn btn-outline-primary" %>
+        <% end %>
+        <div class="d-flex justify-content-center mt-2">
+          <% if link %>
+            <%= form_with(url: user_another_website_link_path(@user, link), method: :delete, class: 'd-flex') do |form| %>
+              <%= form.submit t("users.edit.form_delete"), data: { turbo_confirm: t("users.edit.form_confirm_delete") }, class: "btn btn-outline-danger" %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
+  <% end %>
+</div>
 
-    </div>
-  </div>
+<div class="d-flex justify-content-center my-5">
+  <%= button_to t("users.edit.delete_account"), @user, method: :delete, data: { turbo_confirm: t("users.edit.confirm_delete") }, class: "btn btn-danger" %>
 </div>

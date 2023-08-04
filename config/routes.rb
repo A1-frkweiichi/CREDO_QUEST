@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
   # Defines the root path route ("/")
   root "home#top"
   get "/home/special_thanks", to: "home#special_thanks", as: "special_thanks"
@@ -11,6 +10,9 @@ Rails.application.routes.draw do
   get "/auth/failure", to: "sessions#failure"
   delete "/sign_out", to: "sessions#destroy"
 
-  resources :users
+  resources :users do
+    resources :another_website_links, only: [:create, :update, :destroy]
+  end
+
   resources :todos
 end

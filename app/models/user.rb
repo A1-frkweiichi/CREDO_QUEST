@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :todos, dependent: :destroy
+  has_many :another_website_links, dependent: :destroy
   after_create :create_default_todos
 
   def level
