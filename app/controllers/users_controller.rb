@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     # @user_todos_grouped = @user.todos.user_todos.order(id: :desc).group_by(&:category)
     set_meta_tags helpers.default_meta_tags
     helpers.user_meta_tags(@user)
+    @following_users = @user.following
+    @follower_users = @user.followers
   end
 
   def edit

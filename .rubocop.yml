@@ -18,6 +18,7 @@ Layout/LineLength:
     - "Rakefile"
     - "spec/rails_helper.rb"
     - "spec/spec_helper.rb"
+    - "app/models/user.rb"
 
 # ブロック内の行数をチェックする
 # RSpecは1つのブロックあたりの行数が多くなるため、チェックの除外から外す

@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   delete "/sign_out", to: "sessions#destroy"
 
   resources :users do
+    member do
+      get :following, :followers
+    end
     resources :another_website_links, only: [:create, :update, :destroy]
   end
-
+  resources :relationships, only: [:create, :destroy]
   resources :todos
 end

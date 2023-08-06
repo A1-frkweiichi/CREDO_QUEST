@@ -4,42 +4,10 @@
     <div class="card-body">
       <h5><%= @user.name %></h5>
 
-      <div class="d-flex justify-content-center">
-        <p><a href="#" class="link-primary mx-2" data-bs-toggle="modal" data-bs-target="#followedModal">followed</a></p>
-        <div class="modal fade" id="followedModal" tabindex="-1" aria-labelledby="followedModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="followedModalLabel">followed</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p><a href="#" class="link-primary mx-2" data-bs-toggle="modal" data-bs-target="#followerModal">follower数</a></p>
-        <div class="modal fade" id="followerModal" tabindex="-1" aria-labelledby="followerModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="followerModalLabel">follower</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render "follow_form" %>
+      <section class="stats">
+        <%= render "stats" %>
+      </section>
 
       <h5 id="user_level">Level: <%= @user.level %></h5>
       <% @categories_progress.each_with_index do |(category, progress), index| %>

@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <p><a href="#" class="link-primary mx-2" data-bs-toggle="modal" data-bs-target="#followedModal"><%= t("users.show.following") %>: <%= @user.following.count %></a></p>
+  <div class="modal fade" id="followedModal" tabindex="-1" aria-labelledby="followedModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="followedModalLabel"><%= t("users.show.following") %></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <% if @following_users.present? %>
+            <ul class="list-group">
+              <% @following_users.each do |user| %>
+                <li class="list-group-item">
+                  <%= link_to user_path(user) do %>
+                    <%= image_tag user.image, alt: user.name, size: "50x50" %>
+                    <%= user.name %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>まだリストがありません</p>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p><a href="#" class="link-primary mx-2" data-bs-toggle="modal" data-bs-target="#followerModal"><%= t("users.show.followers") %>: <%= @user.followers.count %></a></p>
+  <div class="modal fade" id="followerModal" tabindex="-1" aria-labelledby="followerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="followerModalLabel"><%= t("users.show.followers") %></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <% if @follower_users.present? %>
+            <ul class="list-group">
+              <% @follower_users.each do |user| %>
+                <li class="list-group-item">
+                  <%= link_to user_path(user) do %>
+                    <%= image_tag user.image, alt: user.name, size: "50x50" %>
+                    <%= user.name %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>まだリストがありません</p>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

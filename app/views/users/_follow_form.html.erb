@@ -1,0 +1,11 @@
+<% if current_user == @user %>
+  <button type="button" class="btn btn-primary" disabled> <%= t("users.show.follow") %></button>
+<% elsif current_user %>
+  <div id="follow_form" class="mb-3">
+    <% if current_user.following?(@user) %>
+      <%= render "unfollow" %>
+    <% else %>
+      <%= render "follow" %>
+    <% end %>
+  </div>
+<% end %>
