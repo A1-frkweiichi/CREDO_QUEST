@@ -1,24 +1,17 @@
-<div class="container-fluid px-0 py-5 my-5">
-  <div class="row mx-0">
-    <div class="col px-4 text-center">
+<h1 class="white-text d-flex justify-content-center my-5"><%= t("users.index.title") %></h1>
 
-      <h1 class="white-text"><%= t("users.index.title") %></h1>
+<ul class="list-group mx-5">
+  <% @users.each do |user| %>
+    <li class="list-group-item d-flex justify-content-center align-items-center">
+      <%= link_to user do %>
+        <img src="<%= user.image %>" width="50" height="50" style="display: block; margin: auto;">
+        <%= user.name %>
+      <% end %>
+        <%= render "follow_form", user: user %>
+    </li>
+  <% end %>
+</ul>
 
-      <ul class="list-group">
-        <% @users.each do |user| %>
-          <li class="list-group-item">
-            <%= link_to user do %>
-              <img src="<%= user.image %>" width="50" height="50" style="display: block; margin: auto;">
-              <%= user.name %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-
-      <div class="d-flex justify-content-center mt-5">
-        <%= paginate @users, theme: "bootstrap-5" %>
-      </div>
-
-    </div>
-  </div>
+<div class="d-flex justify-content-center my-5">
+  <%= paginate @users, theme: "bootstrap-5" %>
 </div>

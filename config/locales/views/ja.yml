@@ -26,6 +26,12 @@ ja:
       form_confirm_delete: "本当にリンクを削除しますか？"
       delete_account: "アカウント削除"
       confirm_delete: "本当にアカウントを削除しますか？"
+    show:
+      follow: "フォロー"
+      unfollow: "フォロー解除"
+      following: "パーティ編成"
+      followers: "招待リスト"
+      nolists: "まだリストがありません"
 
   todos:
 
