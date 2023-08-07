@@ -1,0 +1,4 @@
+<div class="d-flex justify-content-center">
+  <%= render 'modal', modal_id: 'followedModal', title: t("users.show.following"), count: @user.following.count, users: @following_users %>
+  <%= render 'modal', modal_id: 'followerModal', title: t("users.show.followers"), count: @user.followers.count, users: @follower_users %>
+</div>

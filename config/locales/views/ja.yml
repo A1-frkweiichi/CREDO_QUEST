@@ -31,6 +31,7 @@ ja:
       unfollow: "フォロー解除"
       following: "パーティ編成"
       followers: "招待リスト"
+      nolists: "まだリストがありません"
 
   todos:
 

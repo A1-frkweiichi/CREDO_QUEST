@@ -1,0 +1,32 @@
+<div class="todos my-5">
+  <div id="flash" class="my-3">
+    <%= render "shared/flash" %>
+  </div>
+
+  <ul class="nav nav-pills nav-fill bg-light" id="categoryTabs" role="tablist">
+    <% DEFAULT_TODOS.keys.each_with_index do |category, index| %>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link <%= 'active' if index == 0 %>" id="<%= "#{category}-tab" %>" data-bs-toggle="tab" href="#<%= category %>" role="tab" aria-controls="<%= category %>" aria-selected="<%= 'true' if index == 0 %>">
+          <%= category %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+  <div class="tab-content" id="categoryTabDescripitions">
+    <% @default_todos_grouped.each_with_index do |(category, todos), index| %>
+      <div class="tab-pane fade <%= 'show active' if index == 0 %>" id="<%= category %>" role="tabpanel" aria-labelledby="<%= "#{category}-tab" %>">
+        <ul class="list-group">
+          <% todos.each_with_index do |todo, index| %>
+            <li class="list-group-item">
+              <%= form_with(model: todo, method: :patch, local: true) do |form| %>
+                Level: <%= index + 1 %>
+                <%= form.check_box :checked, class: "form-check-input me-1", onchange: 'this.form.requestSubmit()', id: "todo_checked_#{todo.id}" %>
+                <%= form.label :checked, todo.description, class: "form-check-label", for: "todo_checked_#{todo.id}" %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
