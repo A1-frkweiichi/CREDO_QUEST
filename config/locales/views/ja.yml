@@ -28,7 +28,7 @@ ja:
       confirm_delete: "本当にアカウントを削除しますか？"
     show:
       follow: "フォロー"
-      unfollow: "フォロー解除"
+      unfollow: "フォロー中"
       following: "パーティ編成"
       followers: "招待リスト"
       nolists: "まだリストがありません"
