@@ -1,10 +1,10 @@
-<%= form_with(model: temp_todo) do |form| %>
-  <% if temp_todo.errors.any? %>
+<%= form_with(model: todo) do |form| %>
+  <% if todo.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(temp_todo.errors.count, "error") %> prohibited this temp_todo from being saved:</h2>
+      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
 
       <ul>
-        <% temp_todo.errors.each do |error| %>
+        <% todo.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
