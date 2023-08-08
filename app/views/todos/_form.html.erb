@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :category, style: "display: block" %>
-    <%= form.text_field :category %>
+    <%= form.select :category, ["BeOpen", "MoveFast", "GiveFirst", "GeekOut", "TakeOwnership"] %>
   </div>
 
   <div>
@@ -24,16 +24,6 @@
   <div>
     <%= form.label :checked, style: "display: block" %>
     <%= form.check_box :checked %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :default, style: "display: block" %>
-    <%= form.check_box :default %>
   </div>
 
   <div>
