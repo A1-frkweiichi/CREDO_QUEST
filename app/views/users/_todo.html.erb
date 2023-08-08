@@ -20,7 +20,7 @@
             <li class="list-group-item">
               <%= form_with(model: todo, method: :patch, local: true) do |form| %>
                 Level: <%= index + 1 %>
-                <%= form.check_box :checked, class: "form-check-input me-1", onchange: 'this.form.requestSubmit()', id: "todo_checked_#{todo.id}" %>
+                <%= form.check_box :checked, class: "form-check-input me-1", onchange: 'this.form.requestSubmit(); triggerPartyEffect(this);', id: "todo_checked_#{todo.id}" %>
                 <%= form.label :checked, todo.description, class: "form-check-label", for: "todo_checked_#{todo.id}" %>
               <% end %>
             </li>
