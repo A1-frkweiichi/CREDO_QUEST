@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Temp todos</h1>
+
+<div id="temp_todos">
+  <% @temp_todos.each do |temp_todo| %>
+    <%= render temp_todo %>
+    <p>
+      <%= link_to "Show this temp todo", temp_todo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New temp todo", new_temp_todo_path %>
