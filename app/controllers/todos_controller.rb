@@ -41,9 +41,9 @@ class TodosController < ApplicationController
   def destroy
     if @todo.default == false
       @todo.destroy
-      redirect_to todos_url, notice: "Todo was successfully destroyed."
+      render turbo_stream: turbo_stream.remove(@todo)
     else
-      redirect_to todos_url, alert: "Not allowed to delete default todos."
+      render turbo_stream: turbo_stream.append("flash_messages", partial: "shared/flash", locals: { message: t("flash.todos.destroy.failure") })
     end
   end
 
