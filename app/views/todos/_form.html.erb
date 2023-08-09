@@ -1,25 +1,27 @@
-<%= form_with(model: todo) do |form| %>
-  <% if todo.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+<%= turbo_frame_tag todo do %>
+  <%= form_with(model: todo) do |form| %>
+    <% if todo.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
 
-      <ul>
-        <% todo.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% todo.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mx-5">
+      <div class="input-group">
+        <div>
+          <%= form.select :category, ["BeOpen", "MoveFast", "GiveFirst", "GeekOut", "TakeOwnership"], {}, { class: "form-select" } %>
+        </div>
+        <%= form.text_field :description, class: "form-control", placeholder: "CREDOを意識してやることを投稿しよう！", aria: { label: "Description" } %>
+        <div class="input-group-append">
+          <%= form.submit "送信", class: "btn btn-primary", id: "button-addon" %>
+        </div>
+      </div>
     </div>
   <% end %>
-
-  <div class="mx-5">
-    <div class="input-group">
-      <div>
-        <%= form.select :category, ["BeOpen", "MoveFast", "GiveFirst", "GeekOut", "TakeOwnership"], {}, { class: "form-select" } %>
-      </div>
-      <%= form.text_field :description, class: "form-control", placeholder: "CREDOを意識してやることを投稿しよう！", aria: { label: "Description" } %>
-      <div class="input-group-append">
-        <%= form.submit "送信", class: "btn btn-primary", id: "button-addon" %>
-      </div>
-    </div>
-  </div>
 <% end %>

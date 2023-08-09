@@ -1,22 +1,24 @@
-<div id="<%= dom_id todo %>" class="mx-5 my-5">
-  <div class="input-group">
-    <%= link_to user_path(todo.user) do %>
-      <%= image_tag todo.user.image, width: 50, height: 50, style: 'display: block; margin: auto;' %>
-    <% end %>
-    <div class="input-group-text">
-      <% if todo.user == current_user %>
-        <%= form_with(model: todo, method: :patch, local: true) do |form| %>
-          <%= form.check_box :checked, class: "form-check-input", onchange: 'this.form.requestSubmit(); triggerPartyEffect(this);' %>
+<%= turbo_frame_tag todo do %>
+  <div class="mx-5 my-5">
+    <div class="input-group">
+      <%= link_to user_path(todo.user) do %>
+        <%= image_tag todo.user.image, width: 50, height: 50, style: 'display: block; margin: auto;' %>
+      <% end %>
+      <div class="input-group-text">
+        <% if todo.user == current_user %>
+          <%= form_with(model: todo, method: :patch, local: true) do |form| %>
+            <%= form.check_box :checked, class: "form-check-input", onchange: 'this.form.requestSubmit(); triggerPartyEffect(this);' %>
+          <% end %>
+        <% else %>
+          <input class="form-check-input" type="checkbox" <%= 'checked' if todo.checked %> aria-label="Checkbox" disabled>
         <% end %>
-      <% else %>
-        <input class="form-check-input" type="checkbox" <%= 'checked' if todo.checked %> aria-label="Checkbox" disabled>
+      </div>
+      <input type="text" class="form-control" value="<%= todo.category %>" readonly aria-label="Category">
+      <input type="text" class="form-control" value="<%= todo.description %>" readonly aria-label="Description" style="width: 65%;">
+      <% if todo.user == current_user %>
+        <%= link_to "編集", edit_todo_path(todo), class: "btn btn-secondary", style: "width: 50px; height: 50px;" %>
+        <%= button_to "削除", todo, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger", style: "width: 50px; height: 50px;" %>
       <% end %>
     </div>
-    <input type="text" class="form-control" value="<%= todo.category %>" readonly aria-label="Category">
-    <input type="text" class="form-control" value="<%= todo.description %>" readonly aria-label="Description" style="width: 65%;">
-    <% if todo.user == current_user %>
-      <%= link_to "編集", edit_todo_path(todo), class: "btn btn-secondary", style: "width: 50px; height: 50px;" %>
-      <%= button_to "削除", todo, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger", style: "width: 50px; height: 50px;" %>
-    <% end %>
   </div>
-</div>
+<% end %>

@@ -34,6 +34,8 @@ class TodosController < ApplicationController
     else
       flash.now[:error] = t("flash.todos.update.failure")
     end
+
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
