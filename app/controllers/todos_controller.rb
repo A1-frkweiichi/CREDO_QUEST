@@ -3,13 +3,13 @@ class TodosController < ApplicationController
 
   def index
     @todos = Todo.user_todos
+    @todo = current_user.todos.new(default: false)
   end
 
   def show
   end
 
   def new
-    @todo = current_user.todos.new(default: false)
   end
 
   def edit
@@ -19,10 +19,12 @@ class TodosController < ApplicationController
     @todo = current_user.todos.new(todo_params.merge(default: false))
 
     if @todo.save
-      redirect_to todo_url(@todo), notice: "Todo was successfully created."
+      flash[:notice] = t("flash.todos.new.success")
     else
-      render :new, status: :unprocessable_entity
+      flash[:error] = t("flash.todos.new.failure")
     end
+
+    redirect_back(fallback_location: root_path)
   end
 
   def update

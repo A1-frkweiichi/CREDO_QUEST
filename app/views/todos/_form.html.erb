@@ -11,22 +11,15 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :category, style: "display: block" %>
-    <%= form.select :category, ["BeOpen", "MoveFast", "GiveFirst", "GeekOut", "TakeOwnership"] %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :checked, style: "display: block" %>
-    <%= form.check_box :checked %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="mx-5">
+    <div class="input-group">
+      <div>
+        <%= form.select :category, ["BeOpen", "MoveFast", "GiveFirst", "GeekOut", "TakeOwnership"], {}, { class: "form-select" } %>
+      </div>
+      <%= form.text_field :description, class: "form-control", placeholder: "CREDOを意識してやることを投稿しよう！", aria: { label: "Description" } %>
+      <div class="input-group-append">
+        <%= form.submit "送信", class: "btn btn-primary", id: "button-addon" %>
+      </div>
+    </div>
   </div>
 <% end %>
