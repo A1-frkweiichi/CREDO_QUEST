@@ -16,20 +16,7 @@
       <input type="text" class="form-control" value="<%= todo.category %>" readonly aria-label="Category">
       <input type="text" class="form-control" value="<%= todo.description %>" readonly aria-label="Description" style="width: 65%;">
       <% if todo.user == current_user %>
-        <script>
-          function tweet() {
-            var text = "テッテレー♪クエスト「<%= todo.description %>」にチャレンジします！";
-            var url = window.location.href;
-            var hashtags = "CREDO_QUEST,RUNTEQ";
-            var via = "CREDO_QUEST";
-            var tweetUrl = "https://twitter.com/share?url=" + encodeURIComponent(url)
-              + "&text=" + encodeURIComponent(text)
-              + "&via=" + encodeURIComponent(via)
-              + "&hashtags=" + encodeURIComponent(hashtags);
-            window.open(tweetUrl);
-          }
-        </script>
-        <button onclick="tweet()" class="btn btn-dark" style="height:50px; width:45px">𝕏</button>
+        <button onclick="tweet(this)" data-text="テッテレー♪<%= todo.category %>「<%= todo.description %>」<%= todo.checked ? 'をクリアしました！' : 'にチャレンジします！' %>" class="btn btn-dark" style="height:50px; width:45px">𝕏</button>
         <%= button_to edit_todo_path(todo), method: :get, class: "btn btn-secondary", style: "height: 50px;" do %>
           <i class="bi bi-pencil-square"></i>
         <% end %>

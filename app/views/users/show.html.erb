@@ -6,20 +6,7 @@
 
       <% if @user == current_user %>
         <div class="d-flex justify-content-center my-3">
-          <script>
-            function tweet() {
-              var text = "テッテレー♪レベル<%= @user.level %>にあがった！";
-              var url = window.location.href;
-              var hashtags = "CREDO_QUEST,RUNTEQ";
-              var via = "CREDO_QUEST";
-              var tweetUrl = "https://twitter.com/share?url=" + encodeURIComponent(url)
-                + "&text=" + encodeURIComponent(text)
-                + "&via=" + encodeURIComponent(via)
-                + "&hashtags=" + encodeURIComponent(hashtags);
-              window.open(tweetUrl);
-            }
-          </script>
-          <button onclick="tweet()" class="btn btn-dark">𝕏 Share</button>
+          <button onclick="tweet(this)" data-text="テッテレー♪レベル<%= @user.level %>にあがった！" class="btn btn-dark">𝕏 Share</button>
         </div>
       <% end %>
 

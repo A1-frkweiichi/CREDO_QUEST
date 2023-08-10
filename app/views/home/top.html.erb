@@ -12,20 +12,7 @@
     </div>
 
     <div class="my-5">
-      <script>
-        function tweet() {
-          var text = "エンジニアになる旅に出よう！";
-          var url = "https://www.credo-quest.com \n";
-          var hashtags = "CREDO_QUEST,RUNTEQ";
-          var via = "CREDO_QUEST";
-          var tweetUrl = "https://twitter.com/share?url=" + encodeURIComponent(url)
-            + "&text=" + encodeURIComponent(text)
-            + "&via=" + encodeURIComponent(via)
-            + "&hashtags=" + encodeURIComponent(hashtags);
-          window.open(tweetUrl);
-        }
-      </script>
-      <button onclick="tweet()" class="btn btn-dark">𝕏 Share</button>
+      <button onclick="tweet(this)" data-text="エンジニアになる旅に出よう！" class="btn btn-dark">𝕏 Share</button>
       <br>
       <div class="lead my-2">CREDOとは？解説動画</div>
       <div class="ratio ratio-16x9">
