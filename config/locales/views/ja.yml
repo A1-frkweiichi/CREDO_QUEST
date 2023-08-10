@@ -35,6 +35,10 @@ ja:
       nolists: "まだリストがありません"
 
   todos:
+    index:
+      title: "みんなのクエスト"
+      placeholder: "CREDOを意識してやることを投稿しよう！"
+      delete: "本当に削除しますか？"
 
   views:
     pagination:
@@ -45,9 +49,16 @@ ja:
 
   flash:
     todos:
+      new:
+        success: "クエストを　とうろくしました！"
+        failure: "クエストの　とうろくにしっぱいしました"
       update:
         success: "クエストを　こうしんしました！"
         failure: "クエストの　こうしんにしっぱいしました"
+      destroy:
+        success: "クエストを　さくじょしました！"
+        failure: "クエストの　さくじょにしっぱいしました"
+
     another_website_links:
       create:
         success: "リンクを　とうろくしました！"

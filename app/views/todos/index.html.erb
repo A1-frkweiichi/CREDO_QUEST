@@ -1,8 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Todos</h1>
+<h1 class="white-text d-flex justify-content-center my-5"><%= t("todos.index.title") %></h1>
 
 <%= turbo_frame_tag @todo do %>
+
+<div id="flash" class="mx-5 my-5">
+  <%= render "shared/flash" %>
+</div>
 
   <%= render "form", todo: @todo %>
 

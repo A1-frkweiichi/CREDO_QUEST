@@ -17,33 +17,30 @@ class TodosController < ApplicationController
 
   def create
     @todo = current_user.todos.new(todo_params.merge(default: false))
-
     if @todo.save
       flash[:notice] = t("flash.todos.new.success")
     else
       flash[:error] = t("flash.todos.new.failure")
     end
-
     redirect_back(fallback_location: root_path)
   end
 
   def update
     if @todo.update(todo_params)
-      update_user_level_and_categories_progress
       flash.now[:notice] = t("flash.todos.update.success")
+      update_user_level_and_categories_progress
     else
       flash.now[:error] = t("flash.todos.update.failure")
     end
-
-    redirect_back(fallback_location: root_path)
+    # redirect_back(fallback_location: root_path)
   end
 
   def destroy
     if @todo.default == false
       @todo.destroy
-      render turbo_stream: turbo_stream.remove(@todo)
+      flash.now[:notice] = t("flash.todos.destroy.success")
     else
-      render turbo_stream: turbo_stream.append("flash_messages", partial: "shared/flash", locals: { message: t("flash.todos.destroy.failure") })
+      flash.now[:error] = t("flash.todos.destroy.failure")
     end
   end
 
