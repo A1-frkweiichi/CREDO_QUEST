@@ -7,7 +7,7 @@
     <p class="lead">WEB業界のカルチャーを身につけよう！</p>
 
     <div class="d-grid d-sm-flex justify-content-sm-center">
-      <%= button_to "Log in", "/auth/twitter2", method: :post, data: { turbo: false }, class: "btn btn-primary bi bi-twitter" %>
+      <%= button_to "𝕏 Log in", "/auth/twitter2", method: :post, data: { turbo: false }, class: "btn btn-dark" %>
       <%# <%= button_to "ゲストログイン", '#', method: :get, class: "btn btn-light" %>
     </div>
 
@@ -25,7 +25,7 @@
           window.open(tweetUrl);
         }
       </script>
-      <button onclick="tweet()" class="btn btn-info text-light"><i class="bi bi-twitter">Tweet</i></button>
+      <button onclick="tweet()" class="btn btn-dark">𝕏 Share</button>
       <br>
       <div class="lead my-2">CREDOとは？解説動画</div>
       <div class="ratio ratio-16x9">
