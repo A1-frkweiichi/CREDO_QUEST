@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   before_action :set_todo, only: [:edit, :update, :destroy]
 
   def index
-    @todos = Todo.user_todos
+    @todos = Todo.user_todos.order(id: :desc)
     @todo = current_user.todos.new(default: false)
   end
 
