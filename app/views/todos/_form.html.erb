@@ -1,0 +1,32 @@
+<%= turbo_frame_tag todo, target: "_top" do %>
+  <%= form_with(model: todo) do |form| %>
+    <% if todo.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(todo.errors.count, "error") %> <%= t("todos.index.error") %></h2>
+
+        <ul>
+          <% todo.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mx-5">
+      <div class="input-group">
+        <div>
+          <%= form.select :category, ["BeOpen", "MoveFast", "GiveFirst", "GeekOut", "TakeOwnership"], {}, { class: "form-select" } %>
+        </div>
+        <%= form.text_field :description, class: "form-control", placeholder: t("todos.index.placeholder"), aria: { label: "Description" }, required: true %>
+        <%= form.button class: "btn btn-primary" do %>
+          <i class="bi bi-pencil-square"></i>
+        <% end %>
+        <% if todo.persisted? %>
+          <%= link_to todos_path, class: "btn btn-secondary" do %>
+            <i class="bi bi-backspace"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

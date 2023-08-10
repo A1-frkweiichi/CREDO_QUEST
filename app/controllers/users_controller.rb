@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_meta_tags_for_user, only: [:show]
 
   def index
-    @users = User.order(last_login_at: :desc).page(params[:page]).per(10)
+    @users = User.order(last_login_at: :desc).page(params[:page]).per(15)
   end
 
   def show

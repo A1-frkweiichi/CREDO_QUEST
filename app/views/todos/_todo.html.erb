@@ -1,0 +1,28 @@
+<%= turbo_frame_tag todo do %>
+  <div class="mx-5 my-5">
+    <div class="input-group">
+      <%= link_to user_path(todo.user) do %>
+        <%= image_tag todo.user.image, width: 50, height: 50, style: 'display: block; margin: auto;' %>
+      <% end %>
+      <div class="input-group-text">
+        <% if todo.user == current_user %>
+          <%= form_with(model: todo, method: :patch, local: true) do |form| %>
+            <%= form.check_box :checked, class: "form-check-input", onchange: 'this.form.requestSubmit(); triggerPartyEffect(this);' %>
+          <% end %>
+        <% else %>
+          <input class="form-check-input" type="checkbox" <%= 'checked' if todo.checked %> aria-label="Checkbox" disabled>
+        <% end %>
+      </div>
+      <input type="text" class="form-control" value="<%= todo.category %>" readonly aria-label="Category">
+      <input type="text" class="form-control" value="<%= todo.description %>" readonly aria-label="Description" style="width: 65%;">
+      <% if todo.user == current_user %>
+        <%= button_to edit_todo_path(todo), method: :get, class: "btn btn-secondary", style: "height: 50px;" do %>
+          <i class="bi bi-pencil-square"></i>
+        <% end %>
+        <%= button_to todo, method: :delete, data: { turbo_confirm: t("todos.index.delete") }, class: "btn btn-danger", style: "height: 50px;" do %>
+          <i class="bi bi-trash3"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

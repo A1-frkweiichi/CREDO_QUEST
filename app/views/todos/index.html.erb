@@ -1,0 +1,21 @@
+<h1 class="white-text d-flex justify-content-center my-5"><%= t("todos.index.title") %></h1>
+
+<%= turbo_frame_tag @todo do %>
+
+<div id="flash" class="mx-5 my-5">
+  <%= render "shared/flash" %>
+</div>
+
+  <%= render "form", todo: @todo %>
+
+  <div id="todos">
+    <% @todos.each do |todo| %>
+      <%= render todo %>
+    <% end %>
+  </div>
+
+  <div class="d-flex justify-content-center my-5">
+    <%= paginate @todos, theme: "bootstrap-5" %>
+  </div>
+
+<% end %>

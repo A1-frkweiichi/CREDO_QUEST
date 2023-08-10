@@ -10,7 +10,10 @@
             <%= button_to t("shared.header.user"), user_path(current_user), method: :get, class: "nav-link active btn btn-link" %>
           </li>
           <li class="nav-item">
-            <%= button_to t("shared.header.index"), users_path, method: :get, class: "nav-link active btn btn-link" %>
+            <%= button_to t("shared.header.users_index"), users_path, method: :get, class: "nav-link active btn btn-link" %>
+          </li>
+          <li class="nav-item">
+            <%= button_to t("shared.header.todos_index"), todos_path, method: :get, class: "nav-link active btn btn-link" %>
           </li>
           <li class="nav-item">
             <%= button_to t("shared.header.edit"), edit_user_path(current_user), method: :get, class: "nav-link active btn btn-link" %>
