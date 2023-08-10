@@ -17,10 +17,15 @@
         <div>
           <%= form.select :category, ["BeOpen", "MoveFast", "GiveFirst", "GeekOut", "TakeOwnership"], {}, { class: "form-select" } %>
         </div>
-        <%= form.text_field :description, class: "form-control", placeholder: "CREDOを意識してやることを投稿しよう！", aria: { label: "Description" } %>
-        <div class="input-group-append">
-          <%= form.submit "送信", class: "btn btn-primary", id: "button-addon" %>
-        </div>
+        <%= form.text_field :description, class: "form-control", placeholder: t("todos.index.placeholder"), aria: { label: "Description" } %>
+        <%= form.button class: "btn btn-primary" do %>
+          <i class="bi bi-pencil-square"></i>
+        <% end %>
+        <% if todo.persisted? %>
+          <%= link_to todos_path, class: "btn btn-secondary" do %>
+            <i class="bi bi-backspace"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>
