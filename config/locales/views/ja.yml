@@ -39,6 +39,7 @@ ja:
       title: "みんなのクエスト"
       placeholder: "CREDOを意識してやることを投稿しよう！"
       delete: "本当に削除しますか？"
+      error: "下記のエラーが発生しました。"
 
   views:
     pagination:
