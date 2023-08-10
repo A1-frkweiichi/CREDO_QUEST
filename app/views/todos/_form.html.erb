@@ -17,7 +17,7 @@
         <div>
           <%= form.select :category, ["BeOpen", "MoveFast", "GiveFirst", "GeekOut", "TakeOwnership"], {}, { class: "form-select" } %>
         </div>
-        <%= form.text_field :description, class: "form-control", placeholder: t("todos.index.placeholder"), aria: { label: "Description" } %>
+        <%= form.text_field :description, class: "form-control", placeholder: t("todos.index.placeholder"), aria: { label: "Description" }, required: true %>
         <%= form.button class: "btn btn-primary" do %>
           <i class="bi bi-pencil-square"></i>
         <% end %>
