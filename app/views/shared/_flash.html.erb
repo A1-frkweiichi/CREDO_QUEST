@@ -1,8 +1,6 @@
-<% [:notice, :error].each do |key| %>
-  <% if flash[key] %>
-    <div class="flash-message-design alert alert-dismissible fade show" role="alert">
-      <%= flash[key] %>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-  <% end %>
+<% if flash[:notice] || flash[:alert] %>
+  <div class="flash-message-design alert alert-dismissible fade show" role="alert">
+    <%= flash[:notice] || flash[:alert] %>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
 <% end %>
