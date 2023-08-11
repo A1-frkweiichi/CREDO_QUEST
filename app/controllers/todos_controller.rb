@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
   before_action :set_todo, only: [:edit, :update, :destroy]
   # before_action :set_meta_tags_for_todo, only: [:index]
 
