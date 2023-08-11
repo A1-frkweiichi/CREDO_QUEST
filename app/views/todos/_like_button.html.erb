@@ -1,0 +1,13 @@
+<div id="like_button_for_todo_<%= todo.id %>">
+  <% unless todo.user == current_user %>
+    <% if current_user.liked?(todo) %>
+      <%= button_to todo_like_path(todo), method: :delete, class: "btn btn-primary", style: "height: 50px;" do %>
+        <i class="bi bi-star-fill" style="color: #ffc107"></i>
+      <% end %>
+    <% else %>
+      <%= button_to todo_like_path(todo), method: :post, class: "btn btn-primary", style: "height: 50px;" do %>
+        <i class="bi bi-star"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

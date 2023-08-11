@@ -6,6 +6,9 @@ class TodosController < ApplicationController
     @todo = current_user.todos.new(default: false) if current_user
   end
 
+  def show
+  end
+
   def edit
   end
 
