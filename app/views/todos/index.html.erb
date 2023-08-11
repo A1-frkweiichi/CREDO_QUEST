@@ -24,8 +24,3 @@
 <div class="d-flex justify-content-center my-5">
   <%= paginate @todos, theme: "bootstrap-5" %>
 </div>
-
-<% content_for :head do %>
-  <meta property="og:image" content="<%= image_url('ogp.jpg') %>">
-  <meta name="twitter:image" content="<%= image_url('ogp.jpg') %>">
-<% end %>
