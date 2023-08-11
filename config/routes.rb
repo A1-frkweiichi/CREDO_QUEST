@@ -17,5 +17,8 @@ Rails.application.routes.draw do
     resources :another_website_links, only: [:create, :update, :destroy]
   end
   resources :relationships, only: [:create, :destroy]
-  resources :todos
+
+  resources :todos do
+    resource :like, only: [:create, :destroy]
+  end
 end

@@ -4,6 +4,7 @@
       <%= link_to user_path(todo.user) do %>
         <%= image_tag todo.user.image, width: 50, height: 50, style: 'display: block; margin: auto;' %>
       <% end %>
+
       <div class="input-group-text">
         <% if todo.user == current_user %>
           <%= form_with(model: todo, method: :patch, local: true) do |form| %>
@@ -13,8 +14,12 @@
           <input class="form-check-input" type="checkbox" <%= 'checked' if todo.checked %> aria-label="Checkbox" disabled>
         <% end %>
       </div>
+
       <input type="text" class="form-control" value="<%= todo.category %>" readonly aria-label="Category">
       <input type="text" class="form-control" value="<%= todo.description %>" readonly aria-label="Description" style="width: 65%;">
+
+      <%= render 'todos/like_button', todo: todo %>
+
       <% if todo.user == current_user %>
         <button onclick="tweet(this)" data-text="テッテレー♪<%= todo.category %>「<%= todo.description %>」<%= todo.checked ? 'をクリアしました！' : 'にチャレンジします！' %>" class="btn btn-dark" style="height:50px; width:45px">𝕏</button>
         <%= button_to edit_todo_path(todo), method: :get, class: "btn btn-secondary", style: "height: 50px;" do %>

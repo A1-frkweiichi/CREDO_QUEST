@@ -1,11 +1,25 @@
 class User < ApplicationRecord
   after_create :create_default_todos
   has_many :todos, dependent: :destroy
+  has_many :likes
+  has_many :liked_todos, through: :likes, source: :todo
   has_many :another_website_links, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+
+  def liked?(todo)
+    likes.exists?(todo_id: todo.id)
+  end
+
+  def like(todo)
+    likes.create(todo_id: todo.id)
+  end
+
+  def unlike(todo)
+    likes.find_by(todo_id: todo.id).destroy
+  end
 
   def follow(other_user)
     following << other_user unless self == other_user

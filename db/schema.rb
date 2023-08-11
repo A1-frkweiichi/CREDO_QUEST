@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_06_063941) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_11_163000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_06_063941) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_another_website_links_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "todo_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_id"], name: "index_likes_on_todo_id"
+    t.index ["user_id", "todo_id"], name: "index_likes_on_user_id_and_todo_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -57,5 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_06_063941) do
   end
 
   add_foreign_key "another_website_links", "users"
+  add_foreign_key "likes", "todos"
+  add_foreign_key "likes", "users"
   add_foreign_key "todos", "users"
 end

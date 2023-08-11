@@ -1,9 +1,10 @@
 class Todo < ApplicationRecord
-  belongs_to :user
-  after_save :update_user_level, if: :saved_change_to_checked?
-
   scope :default_todos, -> { where(default: true) }
   scope :user_todos, -> { where(default: false) }
+  belongs_to :user
+  has_many :likes
+  has_many :likers, through: :likes, source: :user
+  after_save :update_user_level, if: :saved_change_to_checked?
 
   def update_user_level
     if checked
