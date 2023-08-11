@@ -19,3 +19,8 @@
   </div>
 
 <% end %>
+
+<% content_for :head do %>
+  <meta property="og:image" content="<%= image_url('ogp.jpg') %>">
+  <meta name="twitter:image" content="<%= image_url('ogp.jpg') %>">
+<% end %>
