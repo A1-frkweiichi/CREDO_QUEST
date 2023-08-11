@@ -55,5 +55,6 @@ class TodosController < ApplicationController
 
   def set_meta_tags_for_todo
     set_meta_tags helpers.default_meta_tags
+    helpers.todo_meta_tags
   end
 end
