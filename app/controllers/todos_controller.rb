@@ -1,11 +1,9 @@
 class TodosController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
   before_action :set_todo, only: [:edit, :update, :destroy]
-  # before_action :set_meta_tags_for_todo, only: [:index]
 
   def index
     @todos = Todo.user_todos.order(id: :desc).page(params[:page]).per(15)
-    @todo = current_user.todos.new(default: false)
+    @todo = current_user.todos.new(default: false) if current_user
   end
 
   def edit
@@ -53,9 +51,4 @@ class TodosController < ApplicationController
     @todo.update_user_level
     @categories_progress = @todo.user.categories_progress
   end
-
-  # def set_meta_tags_for_todo
-  #   set_meta_tags helpers.default_meta_tags
-  #   helpers.todo_meta_tags
-  # end
 end
