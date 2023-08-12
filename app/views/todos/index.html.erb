@@ -4,6 +4,7 @@
   <div id="flash" class="mx-5 my-5">
     <%= render "shared/flash" %>
   </div>
+
   <% if current_user %>
     <%= render "form", todo: @todo %>
   <% end %>

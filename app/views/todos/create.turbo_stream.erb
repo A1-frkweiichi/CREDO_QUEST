@@ -1,0 +1,5 @@
+<%= turbo_stream.prepend "todos", @todo %>
+
+<%= turbo_stream.replace "todo/form", partial: "todos/form", locals: { todo: current_user.todos.new } %>
+
+<%= turbo_stream.update "flash", partial: "shared/flash" %>
