@@ -14,6 +14,6 @@
   </turbo-stream>
 <% end %>
 
-<%= turbo_stream.update @todo %>
+<%= turbo_stream.replace "todo_#{ @todo.id }", partial: "todos/todo", locals: { todo: @todo } %>
 
 <%= turbo_stream.update "flash", partial: "shared/flash" %>

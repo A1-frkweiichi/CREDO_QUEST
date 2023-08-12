@@ -15,11 +15,10 @@ class TodosController < ApplicationController
   def create
     @todo = current_user.todos.new(todo_params.merge(default: false))
     if @todo.save
-      flash[:notice] = t("flash.todos.new.success")
+      flash.now[:notice] = t("flash.todos.new.success")
     else
-      flash[:error] = t("flash.todos.new.failure")
+      flash.now[:error] = t("flash.todos.new.failure")
     end
-    redirect_back(fallback_location: root_path)
   end
 
   def update
@@ -32,8 +31,7 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    if @todo.default == false
-      @todo.destroy
+    if @todo.default == false && @todo.destroy
       flash.now[:notice] = t("flash.todos.destroy.success")
     else
       flash.now[:error] = t("flash.todos.destroy.failure")

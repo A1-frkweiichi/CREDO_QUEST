@@ -1,4 +1,4 @@
-<%= turbo_frame_tag todo do %>
+<%= turbo_frame_tag "todo/form" do %>
   <%= form_with(model: todo) do |form| %>
     <% if todo.errors.any? %>
       <div style="color: red">
@@ -22,7 +22,7 @@
           <i class="bi bi-pencil-square"></i>
         <% end %>
         <% if todo.persisted? %>
-          <%= link_to todos_path, class: "btn btn-secondary" do %>
+          <%= link_to todos_path, data: { turbo_frame: "todo_#{todo.id}" }, class: "btn btn-secondary" do %>
             <i class="bi bi-backspace"></i>
           <% end %>
         <% end %>
