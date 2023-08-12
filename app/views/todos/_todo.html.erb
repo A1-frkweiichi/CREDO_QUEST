@@ -1,9 +1,7 @@
 <%= turbo_frame_tag todo do %>
   <div class="mx-5 my-5">
     <div class="input-group">
-      <%= link_to user_path(todo.user) do %>
-        <%= image_tag todo.user.image, width: 50, height: 50, style: 'display: block; margin: auto;' %>
-      <% end %>
+      <%= image_tag todo.user.image, width: 50, height: 50, style: 'display: block; margin: auto;' %>
 
       <div class="input-group-text">
         <% if todo.user == current_user %>

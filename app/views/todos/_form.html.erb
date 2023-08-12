@@ -1,4 +1,4 @@
-<%= turbo_frame_tag todo, target: "_top" do %>
+<%= turbo_frame_tag todo do %>
   <%= form_with(model: todo) do |form| %>
     <% if todo.errors.any? %>
       <div style="color: red">
