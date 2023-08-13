@@ -1,6 +1,16 @@
 <h1 class="white-text d-flex justify-content-center my-5"><%= t("todos.index.title") %></h1>
 
 <%= turbo_frame_tag @todo do %>
+
+  <div class="d-flex justify-content-center my-5">
+    <%= search_form_for @q, url: todos_path, method: :get, html: { class: "d-flex align-items-center" } do |f| %>
+      <%= f.select :category_eq, Todo::CATEGORIES, {include_blank: t("todos.index.search")}, {class: "form-select"} %>
+      <%= f.button class: "btn btn-primary mx-1" do %>
+        <i class="bi bi-search"></i>
+      <% end %>
+    <% end %>
+  </div>
+
   <div id="flash" class="mx-5 my-5">
     <%= render "shared/flash" %>
   </div>

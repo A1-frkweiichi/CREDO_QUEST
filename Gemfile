@@ -88,3 +88,5 @@ gem "meta-tags"
 
 gem "bootstrap5-kaminari-views"
 gem "kaminari"
+
+gem "ransack"

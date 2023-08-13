@@ -15,7 +15,7 @@
     <div class="mx-5">
       <div class="input-group">
         <div>
-          <%= form.select :category, ["BeOpen", "MoveFast", "GiveFirst", "GeekOut", "TakeOwnership"], {}, { class: "form-select" } %>
+          <%= form.select :category, Todo::CATEGORIES, {}, { class: "form-select" } %>
         </div>
         <%= form.text_field :description, class: "form-control", placeholder: t("todos.index.placeholder"), aria: { label: "Description" }, required: true %>
         <%= form.button class: "btn btn-primary" do %>
