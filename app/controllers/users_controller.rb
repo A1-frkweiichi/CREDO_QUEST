@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_meta_tags_for_user, only: [:show]
 
   def index
     @users = User.order(last_login_at: :desc).page(params[:page]).per(15)
@@ -27,10 +26,5 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-  end
-
-  def set_meta_tags_for_user
-    set_meta_tags helpers.default_meta_tags
-    helpers.user_meta_tags(@user)
   end
 end
