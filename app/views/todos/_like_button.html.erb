@@ -1,12 +1,15 @@
 <div id="like_button_for_todo_<%= todo.id %>">
   <% if current_user && todo.user != current_user %>
+    <% liked_users_images = todo.liked_users.map { |user| image_tag(user.image, height: 50) }.join(' ') %>
     <% if current_user.liked?(todo) %>
-      <%= button_to todo_like_path(todo), method: :delete, class: "btn btn-primary", style: "height: 50px;" do %>
+      <%= button_to todo_like_path(todo), method: :delete, class: "btn btn-primary", style: "height: 50px;", data: { bs_toggle: "tooltip", bs_placement: "top", bs_html: "true", bs_original_title: liked_users_images } do %>
         <i class="bi bi-star-fill" style="color: #ffc107"></i>
+        <span><%= todo.likes.count %></span>
       <% end %>
     <% else %>
-      <%= button_to todo_like_path(todo), method: :post, class: "btn btn-primary", style: "height: 50px;" do %>
+      <%= button_to todo_like_path(todo), method: :post, class: "btn btn-primary", style: "height: 50px;", data: { bs_toggle: "tooltip", bs_placement: "top", bs_html: "true", bs_original_title: liked_users_images } do %>
         <i class="bi bi-star"></i>
+        <span><%= todo.likes.count %></span>
       <% end %>
     <% end %>
   <% end %>
