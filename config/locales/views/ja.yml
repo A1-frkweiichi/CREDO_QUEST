@@ -62,6 +62,9 @@ ja:
         failure: "クエストの　さくじょにしっぱいしました"
       authorize_todo:
         alert: "ほかのひとの　クエストは　こうしんできません！"
+    likes:
+      check_current_user:
+        alert: "ログインしてください"
 
     another_website_links:
       create:
