@@ -60,6 +60,8 @@ ja:
       destroy:
         success: "クエストを　さくじょしました！"
         failure: "クエストの　さくじょにしっぱいしました"
+      authorize_todo:
+        alert: "ほかのひとの　クエストは　こうしんできません！"
 
     another_website_links:
       create:

@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: [:edit, :update, :destroy]
+  before_action :authorize_todo, only: [:update]
 
   def index
     @q = Todo.user_todos.ransack(params[:q])
@@ -42,7 +43,14 @@ class TodosController < ApplicationController
   private
 
   def set_todo
-    @todo = current_user.todos.find(params[:id])
+    @todo = Todo.find(params[:id])
+  end
+
+  def authorize_todo
+    if current_user.nil? || @todo.user != current_user
+      flash[:alert] = t("flash.todos.authorize_todo.alert")
+      redirect_to user_path(@todo.user)
+    end
   end
 
   def todo_params
