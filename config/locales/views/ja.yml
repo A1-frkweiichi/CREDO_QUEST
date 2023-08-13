@@ -37,6 +37,7 @@ ja:
   todos:
     index:
       title: "みんなのクエスト"
+      search: "クエストを探す"
       placeholder: "CREDOを意識してやることを投稿しよう！"
       delete: "本当に削除しますか？"
       error: "下記のエラーが発生しました。"
