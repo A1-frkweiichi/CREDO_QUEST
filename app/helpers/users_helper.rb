@@ -15,16 +15,4 @@ module UsersHelper
       "bg-secondary"
     end
   end
-
-  def user_meta_tags(user)
-    set_meta_tags(
-      og: {
-        url: user_url(user),
-        image: ActionController::Base.helpers.image_url("ogp.jpg")
-      },
-      twitter: {
-        image: ActionController::Base.helpers.image_url("ogp.jpg")
-      }
-    )
-  end
 end
