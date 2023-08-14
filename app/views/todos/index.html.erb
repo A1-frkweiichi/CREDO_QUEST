@@ -1,6 +1,6 @@
 <h1 class="white-text d-flex justify-content-center my-5"><%= t("todos.index.title") %></h1>
 
-<%= turbo_frame_tag @todo do %>
+<%= turbo_frame_tag "todos/index" do %>
 
   <div class="d-flex justify-content-center my-5">
     <%= search_form_for @q, url: todos_path, method: :get, html: { class: "d-flex align-items-center" } do |f| %>
