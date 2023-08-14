@@ -47,10 +47,10 @@ class TodosController < ApplicationController
   end
 
   def authorize_todo
-    if current_user.nil? || @todo.user != current_user
-      flash[:alert] = t("flash.todos.authorize_todo.alert")
-      redirect_to user_path(@todo.user)
-    end
+    return unless current_user.nil? || @todo.user != current_user
+
+    flash[:alert] = t("flash.todos.authorize_todo.alert")
+    redirect_to user_path(@todo.user)
   end
 
   def todo_params

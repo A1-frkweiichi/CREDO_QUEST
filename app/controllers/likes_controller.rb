@@ -19,9 +19,9 @@ class LikesController < ApplicationController
   end
 
   def check_current_user
-    unless current_user
-      flash[:alert] = t("flash.likes.check_current_user.alert")
-      render turbo_stream: turbo_stream.update("flash", partial: "shared/flash")
-    end
+    return if current_user
+
+    flash[:alert] = t("flash.likes.check_current_user.alert")
+    render turbo_stream: turbo_stream.update("flash", partial: "shared/flash")
   end
 end
