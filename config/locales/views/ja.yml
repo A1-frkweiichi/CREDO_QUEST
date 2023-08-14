@@ -33,6 +33,7 @@ ja:
       following: "パーティ編成"
       followers: "招待リスト"
       nolists: "まだリストがありません"
+      link_button: "みんなのクエストを見る"
 
   todos:
     index:
