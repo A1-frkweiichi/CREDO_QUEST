@@ -1,5 +1,21 @@
 <h1 class="white-text d-flex justify-content-center my-5"><%= t("todos.index.title") %></h1>
 
+<div class="d-flex justify-content-center">
+  <div class="d-flex flex-column mx-3">
+    <%= image_tag "dragon.jpg", size: "100x100", class: "mt-5" %>
+    <p class="white-text mt-2">ルビー ドラゴン</p>
+  </div>
+  <div class="d-flex flex-column mx-3">
+    <div class="p-3 rounded bg-light" style="border: 1px solid black;">
+      <p class="m-2">「意識したこと」や「お勧めなこと」をシェアして、みんなの良いところを真似してみよう！</p>
+      <p class="m-2">上手くなるには、素直に真似することが　いちばんの近道だよ！</p>
+    </div>
+    <div class="p-3 rounded bg-light mt-2" style="border: 1px solid black;">
+      <p class="m-2"><i class="bi bi-star-fill" style="color: #ffc107"></i>マークをつけて応援しあたっり、　𝕏 シェアをしてがんばったことを発信しよう！</p>
+    </div>
+  </div>
+</div>
+
 <%= turbo_frame_tag "todos/index" do %>
 
   <div class="d-flex justify-content-center my-5">
