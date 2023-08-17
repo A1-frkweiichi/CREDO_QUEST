@@ -50,14 +50,12 @@ class User < ApplicationRecord
       user_record.nickname = auth[:info][:nickname]
       user_record.name = auth[:info][:name]
       user_record.image = auth[:info][:image].gsub("_normal", "")
-      user_record.last_login_at = Time.current
     end
 
     user.assign_attributes(
       nickname: auth[:info][:nickname],
       name: auth[:info][:name],
-      image: auth[:info][:image].gsub("_normal", ""),
-      last_login_at: Time.current
+      image: auth[:info][:image].gsub("_normal", "")
     )
 
     user.save if user.changed?
