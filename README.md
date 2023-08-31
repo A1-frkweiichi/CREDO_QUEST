@@ -1,9 +1,8 @@
 <div align="center">
-  <h1>CREDO QUEST</h1>
+  <h1><a href="https://www.credo-quest.com/">CREDO QUEST</a></h1>
   <h2>RUNTEQ CREDO（行動指針）を推進するTodoListアプリ</h2>
   <img src="https://github.com/furukawaeiichi/CREDO_QUEST/blob/main/app/assets/images/ogp.jpg?raw=true" alt="CREDO QUEST image"/>
 </div>
-<p>CREDO QUEST Topページへ<a href="https://www.credo-quest.com/"></a></p>
 
 
 ## サービス概要
