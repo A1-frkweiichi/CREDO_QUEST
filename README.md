@@ -61,3 +61,4 @@
   - Heroku
 
 ## ER図
+<img width="1827" alt="スクリーンショット 2023-09-01 2 49 39" src="https://github.com/furukawaeiichi/CREDO_QUEST/assets/102509805/55d15fe4-2052-459a-b335-b803eb5445b0">
