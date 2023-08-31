@@ -1,4 +1,4 @@
-<div class="text-center">
+<div align="center">
   <h1>CREDO QUEST</h1>
   <h2>RUNTEQ CREDO（行動指針）を推進するTodoListアプリ</h2>
   <p>CREDO QUEST Topページへ<a href="https://www.credo-quest.com/"></a></p>
