@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><a href="https://www.credo-quest.com/">CREDO QUEST</a></h1>
+  <h1><a href="https://www.credo-quest.com/" target="_blank">CREDO QUEST</a></h1>
   <h2>RUNTEQ CREDO（行動指針）を推進するTodoListアプリ</h2>
   <img src="https://github.com/furukawaeiichi/CREDO_QUEST/blob/main/app/assets/images/ogp.jpg?raw=true" alt="CREDO QUEST image"/>
 </div>
