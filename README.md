@@ -10,6 +10,10 @@
 - デフォルトのTodoListにチェックできる
 - オリジナルのTodoをCRUD/チェック/絞り込みできる
 
+https://github.com/furukawaeiichi/CREDO_QUEST/assets/102509805/a929fc6b-32bd-48b9-9b62-3daff2fb2cb3
+
+https://github.com/furukawaeiichi/CREDO_QUEST/assets/102509805/0cdb3e1f-aac4-493e-92f5-abe9b2bcff7d
+
 ## メインのターゲットユーザー
 - RUNTEQ受講生
 - 未経験からプログラミング学習/転職に取り組んでいる人
