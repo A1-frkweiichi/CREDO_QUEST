@@ -26,7 +26,10 @@
             <%= button_to t("shared.header.sign_in"), "/auth/twitter2", method: :post, data: { turbo: false }, class: "nav-link active btn btn-link" %>
           </li>
           <li class="nav-item">
-            <%# <%= button_to t("shared.header.guest_sign_in"), "#", method: :get, class: "nav-link active btn btn-link" %>
+            <%= button_to t("shared.header.todos_index"), todos_path, method: :get, class: "nav-link active btn btn-link" %>
+          </li>
+          <li class="nav-item">
+            <%= button_to t("shared.header.users_index"), users_path, method: :get, class: "nav-link active btn btn-link" %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Information</a>

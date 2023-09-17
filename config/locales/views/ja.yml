@@ -6,8 +6,8 @@ ja:
       confirm_sign_out: "本当にログアウトしますか？"
       guest_sign_in: "ゲストログイン"
       user: "マイページ"
-      users_index: "仲間を探す"
-      todos_index: "みんなのクエスト"
+      users_index: "仲間一覧"
+      todos_index: "クエスト掲示板"
       edit: "設定"
     footer:
       todo_form: "クエスト応募"
