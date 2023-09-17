@@ -1,20 +1,15 @@
 <div class="container px-4 py-5 my-5">
   <div class="text-center white-text">
     <h1 class="display-5 fw-bold">CREDO QUEST</h1>
-    <h1 class="display-5 fw-bold">〜エンジニアになるための旅〜</h1>
-    <br>
-    <p class="lead">仲間とクエストをクリアして</p>
-    <p class="lead">WEB業界のカルチャーを身につけよう！</p>
+    <h4>自走して活躍できるエンジニアになるためのRUNTEQ CREDO（理念・行動指針）を<br>①具体的行動まで落とし込み、②成長を見える化できます</h4>
 
-    <div class="d-grid d-sm-flex justify-content-sm-center">
-      <%= button_to "𝕏 Log in", "/auth/twitter2", method: :post, data: { turbo: false }, class: "btn btn-dark" %>
-      <%# <%= button_to "ゲストログイン", '#', method: :get, class: "btn btn-light" %>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <%= button_to "𝕏 Log in", "/auth/twitter2", method: :post, data: { turbo: false }, class: "btn btn-dark btn-lg" %>
     </div>
 
     <div class="my-5">
-      <button onclick="tweet(this)" data-text="エンジニアになる旅に出よう！" class="btn btn-dark">𝕏 Share</button>
-      <br>
-      <div class="lead my-2">CREDOとは？解説動画</div>
+      <h1 class="display-5 fw-bold">RUNTEQ CREDOとは？</h1>
+      <h4>解説動画も見てみよう！</h4>
       <div class="ratio ratio-16x9">
         <iframe src="https://www.youtube.com/embed/wdLRuRU8H9Q" title="YouTube video" allowfullscreen></iframe>
       </div>
