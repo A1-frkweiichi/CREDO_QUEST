@@ -4,7 +4,7 @@ class TodosController < ApplicationController
 
   def index
     @q = Todo.user_todos.ransack(params[:q])
-    @todos = @q.result.order(id: :desc).page(params[:page]).per(15)
+    @todos = @q.result.order(id: :desc).page(params[:page]).per(10)
     @todo = current_user.todos.new(default: false) if current_user
   end
 
